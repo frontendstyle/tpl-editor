@@ -1,0 +1,12 @@
+build/
+node_modules/
+packages/
+public/
+src/
+
+.gitignore
+README.md
+index.html
+pnpm-lock.yaml
+rollup.config.js
+vite.build.config.js
