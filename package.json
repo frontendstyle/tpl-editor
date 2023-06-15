@@ -1,7 +1,7 @@
 {
   "name": "tpl-editor",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.6",
   "license": "MIT",
   "author": "Zoe.Yuan",
   "files": [
@@ -13,7 +13,8 @@
     ".": {
       "import": "./dist/tpl-editor.esm.js",
       "require": "./dist/tpl-editor.js"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
@@ -23,7 +24,7 @@
     "lib": "rimraf dist && rollup -c"
   },
   "peerDependencies": {
-    "tpl-editor": "^0.0.3",
+    "tpl-editor": "^0.0.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {

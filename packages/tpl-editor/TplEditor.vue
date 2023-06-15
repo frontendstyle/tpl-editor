@@ -1,22 +1,39 @@
 <template>
-    <div class="z-tpl-editor-container">
-        <div
-            ref="editorContentRef"
-            class="z-tpl-editor-container__editor"
-            :id="contentId"
-            @click="inputClick($event)"
-            @keydown.delete="handleDelete($event)"
-            @input="handleInput($event.target)"
-        ></div>
-        <div class="z-tpl-editor-container_tools">
-            <button class="z-tpl-editor-container_tools__item" @click="$emit('add', 'link')">添加超链接</button>
-            <button class="z-tpl-editor-container_tools__item" @click="$emit('add', 'tag')">添加模版标签</button>
-            <span v-if="maxLength" :class="['z-tpl-editor-container_tools__text', typingCount.remainQuantity < 0 ? '__danger' : '']">{{ typingCount.tips }}</span>
-        </div>
+  <div class="z-tpl-editor-container">
+    <div
+      ref="editorContentRef"
+      class="z-tpl-editor-container__editor"
+      :id="contentId"
+      @click="inputClick($event)"
+      @keydown.delete="handleDelete($event)"
+      @input="handleInput($event.target)"
+    ></div>
+    <div class="z-tpl-editor-container_tools">
+      <button
+        class="z-tpl-editor-container_tools__item"
+        @click="$emit('add', 'link')"
+      >
+        添加超链接
+      </button>
+      <button
+        class="z-tpl-editor-container_tools__item"
+        @click="$emit('add', 'tag')"
+      >
+        添加模版标签
+      </button>
+      <span
+        v-if="maxLength"
+        :class="[
+          'z-tpl-editor-container_tools__text',
+          typingCount.remainQuantity < 0 ? '__danger' : '',
+        ]"
+        >{{ typingCount.tips }}</span
+      >
     </div>
+  </div>
 </template>
 <script lang="js">
-import {computed, defineComponent, onMounted, onUnmounted, ref} from "vue";
+import {computed, defineComponent, onMounted, onUnmounted, ref, toRaw} from "vue";
 
 export default defineComponent({
   name: 'TplEditor',
@@ -38,7 +55,7 @@ export default defineComponent({
     }
 
     const updateData = (html, text) => {
-      currentTextLength.value = text
+      currentTextLength.value = text ? text.length : 0
       emit('update:modelValue', html)
     }
 
@@ -96,8 +113,11 @@ export default defineComponent({
     }
 
     const typingCount = computed(() => {
-      if (props.maxLength) {
-        const remainQuantity = props.maxLength - currentTextLength.value
+      const maxLength = Number(toRaw(props.maxLength))
+      console.log(maxLength)
+      if (maxLength) {
+        console.log(currentTextLength.value)
+        const remainQuantity =  maxLength - currentTextLength.value
         const tips = remainQuantity <= 0 ? `输入文字已超出最大值${props.maxLength},${Math.abs(remainQuantity)}个字` : `还可以输入${remainQuantity}个字符`
         return {remainQuantity, tips}
       }

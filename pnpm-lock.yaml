@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   tpl-editor:
-    specifier: ^0.0.3
-    version: 0.0.3(vue@3.2.47)
+    specifier: ^0.0.5
+    version: 0.0.4(vue@3.2.47)
   vue:
     specifier: ^3.2.47
     version: 3.2.47
@@ -3499,20 +3499,13 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /tpl-editor@0.0.2(vue@3.2.47):
-    resolution: {integrity: sha512-D31hV/sZwBVH6hW6WLqckrO76mNpS2Uj1PmcNEjSxX1DvdVJ883ssAy0uyhvheCgxYNom8zTalrG9dkBnQWYqA==}
+  /tpl-editor@0.0.4(vue@3.2.47):
+    resolution: {integrity: sha512-m2lQ5cpu0QMj0WgMpQe8TGrLJU/nqCD746ztC+QSz0R9cfsM33XOxHTgWCLlX4BwUVU9aLAIt4TfllcQkXRhaQ==}
     peerDependencies:
+      tpl-editor: ^0.0.3
       vue: ^3.2.47
     dependencies:
-      vue: 3.2.47
-    dev: false
-
-  /tpl-editor@0.0.3(vue@3.2.47):
-    resolution: {integrity: sha512-YThQp+Qa5FcXVhN/g4UZveh7Kas3CY87rTYkVbyOoEhGkeCm188aKprdh8cOSDY9zr0H4SalzXJpSj97Vyo9Ag==}
-    peerDependencies:
-      vue: ^3.2.47
-    dependencies:
-      tpl-editor: 0.0.2(vue@3.2.47)
+      tpl-editor: 0.0.4(vue@3.2.47)
       vue: 3.2.47
     dev: false
 

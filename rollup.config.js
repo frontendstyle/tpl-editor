@@ -40,7 +40,11 @@ module.exports = defineConfig({
       extensions,
       exclude: '**/node_modules/**'
     }),
-    scss({ include: /\.scss$/, fileName:"style.css", outputStyle: "compressed" }),
+    scss({
+      include: /\.scss$/,
+      fileName:"style.css",
+      outputStyle: "compressed"
+    }),
     // esbuild({
     //   include: /\.js$/,
     //   minify: process.env.NODE_ENV === 'production',
