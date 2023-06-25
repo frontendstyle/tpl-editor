@@ -1,21 +1,9 @@
 {
   "name": "tpl-editor",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.8",
   "license": "MIT",
   "author": "Zoe.Yuan",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/tpl-editor.js",
-  "module": "./dist/tpl-editor.esm.js",
-  "exports": {
-    ".": {
-      "import": "./dist/tpl-editor.esm.js",
-      "require": "./dist/tpl-editor.js"
-    },
-    "./style.css": "./dist/style.css"
-  },
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
@@ -24,7 +12,7 @@
     "lib": "rimraf dist && rollup -c"
   },
   "peerDependencies": {
-    "tpl-editor": "^0.0.6",
+    "tpl-editor": "^0.0.8",
     "vue": "^3.2.47"
   },
   "devDependencies": {
@@ -43,6 +31,7 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "rimraf": "^5.0.1",
     "rollup": "^3.25.1",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.0",

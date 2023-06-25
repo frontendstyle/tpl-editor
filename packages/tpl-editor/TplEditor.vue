@@ -33,7 +33,7 @@
   </div>
 </template>
 <script lang="js">
-import {computed, defineComponent, onMounted, onUnmounted, ref, toRaw} from "vue";
+import {computed, defineComponent, onMounted, onUnmounted, ref} from "vue";
 
 export default defineComponent({
   name: 'TplEditor',
@@ -54,11 +54,6 @@ export default defineComponent({
       return `${Date.now()}-${Math.ceil(Math.random() * 1000)}`;
     }
 
-    const updateData = (html, text) => {
-      currentTextLength.value = text ? text.length : 0
-      emit('update:modelValue', html)
-    }
-
     const contentId = `content${guid()}`
     const editorContentRef = ref(null)
     const currentTextLength = ref(0)
@@ -72,6 +67,12 @@ export default defineComponent({
         selectedRange.value = range
       }
     }
+
+    const updateData = (html, text) => {
+      currentTextLength.value = text?.length ?? 0
+      emit('update:modelValue', html)
+    }
+
     const pushTagToContent = (tag) => {
       const container = editorContentRef.value
       if (selectedRange.value) {
@@ -112,13 +113,11 @@ export default defineComponent({
       }
     }
 
+    const maxLength = Number(props.maxLength)
     const typingCount = computed(() => {
-      const maxLength = Number(toRaw(props.maxLength))
-      console.log(maxLength)
       if (maxLength) {
-        console.log(currentTextLength.value)
         const remainQuantity =  maxLength - currentTextLength.value
-        const tips = remainQuantity <= 0 ? `输入文字已超出最大值${props.maxLength},${Math.abs(remainQuantity)}个字` : `还可以输入${remainQuantity}个字符`
+        const tips = remainQuantity <= 0 ? `输入文字已超出最大值${maxLength},${Math.abs(remainQuantity)}个字` : `还可以输入${remainQuantity}个字符`
         return {remainQuantity, tips}
       }
       return null

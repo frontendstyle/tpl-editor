@@ -14,6 +14,7 @@
         </div>
     </div>
   <div v-html="html"></div>
+  <div>{{html}}</div>
   <div>{{template}}</div>
 </template>
 

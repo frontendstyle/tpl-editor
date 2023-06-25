@@ -1,0 +1,21 @@
+{
+  "name": "tpl-editor",
+  "private": false,
+  "version": "0.0.8",
+  "license": "MIT",
+  "author": "Zoe.Yuan",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/tpl-editor.js",
+  "module": "./lib/tpl-editor.esm.js",
+  "exports": {
+    ".": {
+      "import": "./lib/tpl-editor.esm.js",
+      "require": "./lib/tpl-editor.js"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  }
+}
