@@ -1,18 +1,24 @@
 {
   "name": "tpl-editor",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.15",
   "license": "MIT",
   "author": "Zoe.Yuan",
+  "sideEffects": false,
   "files": [
     "lib"
   ],
   "main": "./lib/tpl-editor.js",
-  "module": "./lib/tpl-editor.esm.js",
+  "module": "./lib/tpl-editor.mjs",
+  "style": "./lib/style.css",
   "exports": {
     ".": {
-      "import": "./lib/tpl-editor.esm.js",
+      "import": "./lib/tpl-editor.mjs",
       "require": "./lib/tpl-editor.js"
+    },
+    "./lib/style.css": {
+      "import": "./lib/style.css",
+      "require": "./lib/style.css"
     }
   },
   "peerDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "tpl-editor",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.11",
   "license": "MIT",
   "author": "Zoe.Yuan",
   "scripts": {
@@ -12,7 +12,7 @@
     "lib": "rimraf dist && rollup -c"
   },
   "peerDependencies": {
-    "tpl-editor": "^0.0.8",
+    "tpl-editor": "^0.0.10",
     "vue": "^3.2.47"
   },
   "devDependencies": {

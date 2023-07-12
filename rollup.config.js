@@ -29,7 +29,7 @@ module.exports = defineConfig({
     },
     {
       name: "tpl-editor",
-      file: "dist/lib/tpl-editor.esm.js",
+      file: "dist/lib/tpl-editor.mjs",
       format: "es",
       plugins: [terser(), strip()],
     },
